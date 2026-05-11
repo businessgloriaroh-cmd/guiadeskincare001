@@ -1,0 +1,853 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia Completo PDRN | Skincare Inteligente</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #f2a8b0;
+    --rose-deep: #d97085;
+    --salmon: #f9c6b0;
+    --cream: #fdf6f0;
+    --ivory: #fff8f4;
+    --charcoal: #2a2020;
+    --muted: #7a6060;
+    --green-soft: #b8d4c0;
+    --gold: #c9a96e;
+    --white: #ffffff;
+    --shadow: 0 4px 30px rgba(200,100,110,0.10);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #f7d6d6 0%, #fce8d8 50%, #f7e8f4 100%);
+    padding: 60px 32px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(242,168,176,0.35) 0%, transparent 70%);
+    top: -80px; right: -80px;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,169,110,0.2) 0%, transparent 70%);
+    bottom: -40px; left: -40px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--rose-deep);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rose-deep);
+  }
+  .hero p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+  }
+  .dna-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    border: 1.5px solid var(--rose);
+    border-radius: 30px;
+    padding: 10px 22px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--rose-deep);
+    box-shadow: var(--shadow);
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* SECTION */
+  .section {
+    margin-top: 44px;
+  }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .section-label .num {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--rose-deep);
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-label h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.45rem;
+    color: var(--charcoal);
+  }
+
+  /* CARD */
+  .card {
+    background: white;
+    border-radius: 18px;
+    padding: 26px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(242,168,176,0.2);
+    margin-bottom: 14px;
+  }
+  .card p, .card li {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #4a3535;
+  }
+  .card ul { padding-left: 18px; }
+  .card ul li { margin-bottom: 5px; }
+
+  /* INTRO BOX */
+  .intro-highlight {
+    background: linear-gradient(135deg, #fff0f2, #fff8f0);
+    border-left: 4px solid var(--rose-deep);
+    border-radius: 0 14px 14px 0;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+  }
+  .intro-highlight p { font-size: 0.97rem; line-height: 1.8; }
+  .intro-highlight strong { color: var(--rose-deep); }
+
+  /* TABS */
+  .tabs { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .tab-btn {
+    padding: 9px 18px;
+    border-radius: 24px;
+    border: 1.5px solid var(--rose);
+    background: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--rose-deep);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab-btn.active, .tab-btn:hover {
+    background: var(--rose-deep);
+    color: white;
+    border-color: var(--rose-deep);
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* COMPARISON GRID */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 520px) { .compare-grid { grid-template-columns: 1fr; } }
+  .compare-card {
+    background: white;
+    border-radius: 16px;
+    padding: 22px 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .compare-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  .compare-card.animal h3 { color: #c46070; }
+  .compare-card.plant h3 { color: #5a9a72; }
+  .compare-card ul { padding-left: 16px; }
+  .compare-card li { font-size: 0.88rem; line-height: 1.7; color: #4a3535; margin-bottom: 4px; }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+  .tag.salmon { background: #fde8e8; color: #c46070; }
+  .tag.green { background: #e2f3e8; color: #4a9060; }
+
+  /* INTENSITY TABLE */
+  .intensity-table { width: 100%; border-collapse: collapse; }
+  .intensity-table th {
+    text-align: left;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 14px;
+    border-bottom: 2px solid #f0e0e0;
+  }
+  .intensity-table td {
+    padding: 13px 14px;
+    font-size: 0.88rem;
+    color: #3a2828;
+    border-bottom: 1px solid #f5eded;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .intensity-table tr:last-child td { border-bottom: none; }
+  .dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+    flex-shrink: 0;
+  }
+  .dot.low { background: #a8d8b0; }
+  .dot.mid { background: #f5c77a; }
+  .dot.high { background: #e07a86; }
+  .dot.plant { background: #9bc8a8; }
+  .level-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .level-badge.low { background: #e8f7eb; color: #3a8050; }
+  .level-badge.mid { background: #fff3dc; color: #9a6a10; }
+  .level-badge.high { background: #fde8eb; color: #c04060; }
+  .level-badge.plant { background: #e8f5ee; color: #3a7050; }
+
+  /* SKIN TYPE */
+  .skin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 520px) { .skin-grid { grid-template-columns: 1fr; } }
+  .skin-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--rose);
+  }
+  .skin-card.oily { border-top-color: var(--green-soft); }
+  .skin-card h3 { font-family: 'DM Serif Display', serif; font-size: 1rem; margin-bottom: 8px; }
+  .skin-card p, .skin-card li { font-size: 0.87rem; line-height: 1.7; color: #4a3535; }
+  .skin-card ul { padding-left: 16px; }
+
+  /* TRIO COMPARISON */
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 560px) { .trio { grid-template-columns: 1fr; } }
+  .trio-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .trio-icon { font-size: 2rem; margin-bottom: 10px; }
+  .trio-card h3 { font-family: 'DM Serif Display', serif; font-size: 1rem; margin-bottom: 8px; color: var(--charcoal); }
+  .trio-card p { font-size: 0.82rem; line-height: 1.65; color: var(--muted); }
+  .trio-card .verdict {
+    margin-top: 12px;
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--rose-deep);
+  }
+
+  /* SYNERGY */
+  .synergy-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+    background: white;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 12px rgba(200,100,110,0.07);
+  }
+  .synergy-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .synergy-row h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; color: var(--charcoal); }
+  .synergy-row p { font-size: 0.86rem; line-height: 1.65; color: var(--muted); }
+
+  /* AVOID */
+  .avoid-box {
+    background: #fff3f3;
+    border: 1.5px solid #f5bfbf;
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .avoid-box h4 { font-weight: 600; margin-bottom: 10px; color: #b04040; font-size: 0.95rem; }
+  .avoid-box ul { padding-left: 16px; }
+  .avoid-box li { font-size: 0.88rem; line-height: 1.7; color: #7a3535; margin-bottom: 4px; }
+
+  /* CONCLUSION */
+  .conclusion {
+    background: linear-gradient(135deg, #f9d8de, #fdebd8);
+    border-radius: 20px;
+    padding: 32px 28px;
+    text-align: center;
+    margin-top: 44px;
+  }
+  .conclusion h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+    color: var(--charcoal);
+  }
+  .conclusion p { font-size: 0.95rem; line-height: 1.8; color: #5a3535; max-width: 520px; margin: 0 auto; }
+  .conclusion-tips {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 22px;
+    text-align: left;
+  }
+  .tip-box {
+    background: white;
+    border-radius: 14px;
+    padding: 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #4a3535;
+    box-shadow: var(--shadow);
+  }
+  .tip-box strong { display: block; margin-bottom: 4px; color: var(--rose-deep); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-top: 1px solid #f0e0e0;
+  }
+
+
+  /* EFFICACY SECTION */
+  .efficacy-reference {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(242,168,176,0.2);
+    margin-bottom: 14px;
+  }
+  .efficacy-reference img { width: 100%; display: block; }
+  .efficacy-caption {
+    padding: 14px 20px;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+    border-top: 1px solid #f5eded;
+  }
+  .efficacy-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .efficacy-row {
+    background: white;
+    border-radius: 14px;
+    padding: 18px 20px;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--rose);
+  }
+  .efficacy-row.injection { border-left-color: #c04060; }
+  .efficacy-row.cosmetic-salmon { border-left-color: var(--rose-deep); }
+  .efficacy-row.cosmetic-plant { border-left-color: var(--green-soft); }
+  .efficacy-row h4 { font-family: "DM Serif Display", serif; font-size: 0.95rem; margin-bottom: 6px; color: var(--charcoal); }
+  .efficacy-row h4 span { font-family: "DM Sans", sans-serif; font-size: 0.78rem; font-weight: 400; color: var(--muted); margin-left: 6px; }
+  .efficacy-row p { font-size: 0.86rem; line-height: 1.65; color: #4a3535; margin-bottom: 6px; }
+  .effect-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .effect-tag { font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: var(--cream); color: var(--charcoal); }
+  .effect-tag.strong { background: #fde8eb; color: #c04060; }
+  .effect-tag.medium { background: #fff3dc; color: #9a6010; }
+  .effect-tag.limited { background: #e8f5ee; color: #3a7050; }
+  .key-insight { background: linear-gradient(135deg, #f9d8de, #fdebd8); border-radius: 14px; padding: 18px 20px; margin-top: 14px; font-size: 0.9rem; line-height: 1.75; color: var(--charcoal); }
+  .key-insight strong { color: var(--rose-deep); }
+
+  /* PRODUCT CARDS */
+  .product-card-row {
+    display: flex;
+    gap: 18px;
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(242,168,176,0.2);
+    align-items: center;
+  }
+  .product-img-wrap {
+    width: 110px;
+    min-width: 110px;
+    height: 110px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f9f0f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+  .product-info { flex: 1; }
+  .product-info h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    margin: 6px 0 4px;
+    color: var(--charcoal);
+  }
+  .product-info p { font-size: 0.86rem; line-height: 1.6; color: #4a3535; margin-bottom: 6px; }
+  .conc-detail { color: var(--muted) !important; font-size: 0.82rem !important; }
+  .product-tags { font-size: 0.78rem !important; color: var(--rose-deep) !important; font-weight: 500; }
+  @media (max-width: 480px) {
+    .product-card-row { flex-direction: column; align-items: flex-start; }
+    .product-img-wrap { width: 100%; min-width: unset; height: 160px; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .section { animation: fadeUp 0.5s ease both; }
+  .cor { color: var(--rose-deep); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">✦ Guia Completo de Skincare</div>
+  <h1>Tudo sobre <em>PDRN</em><br>no seu skincare</h1>
+  <p>O ingrediente que está revolucionando os cuidados com a pele — origem, como escolher, como usar e para qual tipo de pele.</p>
+  <div class="dna-pill">🧬 DNA do Salmão · Ciência + Beleza</div>
+</div>
+
+<div class="container">
+
+  <!-- 1. O QUE É PDRN -->
+  <div class="section">
+    <div class="section-label">
+      <div class="num">1</div>
+      <h2>O que é PDRN?</h2>
+    </div>
+    <div class="intro-highlight">
+      <p>PDRN significa <strong><span class="cor">P</span>oli<span class="cor">D</span>esoxi<span class="cor">R</span>Ribo<span class="cor">N</span>ucleotídeo</strong> — pequenos fragmentos de DNA extraídos principalmente do <strong>salmão</strong>, cuja estrutura genética é <strong>96–98% semelhante à do DNA humano</strong>. Por isso, a pele reconhece o ingrediente como algo familiar e o tolera muito bem, mesmo em peles sensíveis.</p>
+    </div>
+    <div class="card">
+      <p>Originalmente usado em medicina estética via injeção (biorrevitalização), o PDRN chegou aos cosméticos como uma forma de trazer benefícios de regeneração, hidratação profunda, calmante e antioxidante — sem agulha. O segredo está em como o ingrediente é preparado e entregue à pele.</p>
+    </div>
+    <div class="card">
+      <ul>
+        <li>✦ <strong>Hidratação intensa</strong> — fortalece a barreira cutânea e retém água</li>
+        <li>✦ <strong>Calmante e anti-inflamatório</strong> — reduz vermelhidão e irritação</li>
+        <li>✦ <strong>Antioxidante</strong> — protege contra danos externos e envelhecimento</li>
+        <li>✦ <strong>Regenerador</strong> (quando de baixo peso molecular) — estimula colágeno</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2. ORIGENS -->
+  <div class="section">
+    <div class="section-label">
+      <div class="num">2</div>
+      <h2>Origem do ingrediente</h2>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card animal">
+        <span class="tag salmon">🐟 Animal</span>
+        <h3>PDRN do Salmão</h3>
+        <ul>
+          <li>Nome oficial: <strong>Sodium DNA</strong></li>
+          <li>Alta pureza, processo refinado</li>
+          <li>Maior evidência clínica</li>
+          <li>Depende de estoque de peixes</li>
+          <li>Sofre influência do meio ambiente</li>
+          <li>Referência principal do mercado</li>
+        </ul>
+      </div>
+      <div class="compare-card plant">
+        <span class="tag green">🌿 Vegetal</span>
+        <h3>PDRN Vegetal</h3>
+        <ul>
+          <li>Fontes: chá verde, rosa, microalgas, ginseng, fermentação</li>
+          <li>Produção em grande escala</li>
+          <li>Extração mais acessível</li>
+          <li>Ainda com menos estudos clínicos</li>
+          <li>Ótimo para hidratação e antioxidante</li>
+          <li>Menor efeito regenerador</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 2.5 ESPECTRO DE EFICÁCIA -->
+  <div class="section">
+    <div class="section-label">
+      <div class="num" style="background:var(--gold);font-size:11px;">✦</div>
+      <h2>Espectro de eficácia por tipo de PDRN</h2>
+    </div>
+
+    <div class="efficacy-grid">
+      <div class="efficacy-row injection">
+        <h4>PDRN do Salmão — injeção (Sodium DNA) <span>uso clínico/estético</span></h4>
+        <p>Aplicado diretamente na derme. Chega ao colágeno e dispara regeneração real — a forma mais poderosa.</p>
+        <div class="effect-tags">
+          <span class="effect-tag strong">✦ Regeneração celular</span>
+          <span class="effect-tag strong">✦ Cicatrização</span>
+          <span class="effect-tag strong">✦ Anti-inflamatório</span>
+        </div>
+      </div>
+
+      <div class="efficacy-row cosmetic-salmon">
+        <h4>PDRN do Salmão — cosmético (Sodium DNA) <span>creme, sérum, tônico</span></h4>
+        <p>Aplicado como cosmético, a molécula grande tem dificuldade de atravessar a camada córnea. O efeito regenerador fica limitado. Se o PDRN for de <strong>baixo peso molecular (Low Mol. / CPDRN)</strong>, absorção melhora e regeneração passa a ser real.</p>
+        <div class="effect-tags">
+          <span class="effect-tag strong">✦ Hidratação</span>
+          <span class="effect-tag strong">✦ Calmante</span>
+          <span class="effect-tag strong">✦ Antioxidante</span>
+          <span class="effect-tag limited">◐ Regeneração (só baixo peso mol.)</span>
+        </div>
+      </div>
+
+      <div class="efficacy-row cosmetic-plant">
+        <h4>DNA Vegetal — cosmético (Hydrolyzed DNA) <span>rosa, chá verde, microalgas…</span></h4>
+        <p>Ótimo para hidratação e antioxidante. Efeito regenerador mais fraco comparado ao PDRN animal — mas pode variar conforme a formulação e os ativos combinados.</p>
+        <div class="effect-tags">
+          <span class="effect-tag strong">✦ Hidratação</span>
+          <span class="effect-tag strong">✦ Antioxidante</span>
+          <span class="effect-tag strong">✦ Calmante</span>
+          <span class="effect-tag medium">△ Regeneração limitada</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="key-insight">
+      ✅ <strong>Conclusão-chave:</strong> Mesmo sendo da mesma família (fragmentos de DNA), cada tipo tem um espectro de eficácia diferente. O que define o resultado real é a <strong>origem + tecnologia de entrega (peso molecular) + via de uso</strong>.
+    </div>
+  </div>
+
+  <!-- 3. PENETRAÇÃO -->
+  <div class="section">
+    <div class="section-label">
+      <div class="num">4</div>
+      <h2>Por que penetração é tudo</h2>
+    </div>
+    <div class="card">
+      <p><strong>⚡ Este é o ponto mais importante na hora de escolher um produto com PDRN.</strong></p>
+      <br>
+      <p>O PDRN de alto peso molecular (macromolécula) <strong>não consegue atravessar a camada córnea</strong> da pele quando aplicado como cosmético. Ou seja: sem a tecnologia certa, o efeito regenerador é mínimo.</p>
+      <br>
+      <p>Quando o PDRN é <strong>reduzido ao baixo peso molecular</strong> (micronização ou nanoencapsulação), a absorção aumenta significativamente — e aí o efeito de regeneração passa a ser real também em cosméticos.</p>
+    </div>
+    <div class="intro-highlight">
+      <p>💡 <strong>Dica prática:</strong> Ao ver um produto, procure nos rótulos termos como <strong>"Low Molecular PDRN"</strong>, <strong>"Nano PDRN"</strong> ou <strong>"CPDRN"</strong> — esses indicam que a molécula foi tratada para melhor absorção.</p>
+    </div>
+  </div>
+
+  <!-- 4. CONCENTRAÇÕES -->
+  <div class="section">
+    <div class="section-label">
+      <div class="num">5</div>
+      <h2>Concentrações e para que servem</h2>
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('low')">Baixa intensidade</button>
+      <button class="tab-btn" onclick="showTab('mid')">Média intensidade</button>
+      <button class="tab-btn" onclick="showTab('high')">Alta intensidade</button>
+      <button class="tab-btn" onclick="showTab('plant2')">Vegetal / Fermentado</button>
+    </div>
+
+    <div id="low" class="tab-content active">
+      <div class="product-card-row">
+        <div class="product-img-wrap">
+          <img src="imagens/Medicube PDRN Capsule Cream.jpg" alt="Medicube PDRN Pink Collagen Capsule Cream" onerror="this.style.display='none'">
+        </div>
+        <div class="product-info">
+          <span class="level-badge low">0,01–0,1%</span>
+          <h4>Medicube PDRN Pink Collagen Capsule Cream</h4>
+          <p class="conc-detail">Sodium DNA <strong>0,02%</strong></p>
+          <p>Uso diário suave — ideal para peles sensíveis e secas. Cápsula rosa que "estoura" na aplicação, liberando PDRN + colágeno + ácido hialurônico.</p>
+          <p class="product-tags">✦ Barreira &nbsp;✦ Hidratação &nbsp;✦ Brilho natural</p>
+        </div>
+      </div>
+    </div>
+    <div id="mid" class="tab-content">
+      <div class="product-card-row">
+        <div class="product-img-wrap">
+          <img src="imagens/Rejuran Derma Healer Moisture Cream.webp" alt="Rejuran Derma Healer Moisture Cream" onerror="this.style.display='none'">
+        </div>
+        <div class="product-info">
+          <span class="level-badge mid">0,1–0,2%</span>
+          <h4>Rejuran Derma Healer Moisture Cream</h4>
+          <p class="conc-detail">CPDRN <strong>0,2%</strong></p>
+          <p>Equilíbrio perfeito para uso diário. CPDRN (versão otimizada) com foco em barreira + hidratação intensa sem peso.</p>
+          <p class="product-tags">✦ Firmeza &nbsp;✦ Luminosidade &nbsp;✦ Barreira</p>
+        </div>
+      </div>
+      <div class="product-card-row" style="margin-top:12px">
+        <div class="product-img-wrap" style="background:#f0f8f4;">
+          <img src="imagens/Medicube PDRN Pink Sica Toner.webp" alt="Medicube PDRN Pink Sica Toner" onerror="this.style.display='none'">
+        </div>
+        <div class="product-info">
+          <span class="level-badge mid">0,1%</span>
+          <h4>Medicube PDRN Pink Sica Toner</h4>
+          <p class="conc-detail">PDRN salmão <strong>1000 ppm (0,1%)</strong></p>
+          <p>Pós-limpeza: absorção rápida, efeito calmante imediato. Ótimo para começar a rotina com PDRN.</p>
+          <p class="product-tags">✦ Calmante &nbsp;✦ Pós-limpeza &nbsp;✦ Barreira</p>
+        </div>
+      </div>
+    </div>
+    <div id="high" class="tab-content">
+      <div class="product-card-row">
+        <div class="product-img-wrap">
+          <img src="imagens/Medicube PDRN Pink Peptide Ampoule.webp" alt="Medicube PDRN Pink Peptide Ampoule" onerror="this.style.display='none'">
+        </div>
+        <div class="product-info">
+          <span class="level-badge high">0,5–1%</span>
+          <h4>Medicube PDRN Pink Peptide Ampoule</h4>
+          <p class="conc-detail">PDRN salmão <strong>1%</strong></p>
+          <p>Alta concentração para uso pontual. Combinado com múltiplos peptídeos e antioxidantes potentes. Foco em firmeza e anti-aging.</p>
+          <p class="product-tags">✦ Anti-aging &nbsp;✦ Colágeno &nbsp;✦ Firmeza</p>
+        </div>
+      </div>
+    </div>
+    <div id="plant2" class="tab-content">
+      <div class="product-card-row">
+        <div class="product-img-wrap">
+          <img src="imagens/Mediheal PDRN Pore Elasticity Serum.webp" alt="Mediheal PDRN Pore Elasticity Serum" onerror="this.style.display='none'">
+        </div>
+        <div class="product-info">
+          <span class="level-badge plant">até 0,9%</span>
+          <h4>Mediheal PDRN Pore Elasticity Serum</h4>
+          <p class="conc-detail">Rose DNA <strong>~0,9%</strong></p>
+          <p>DNA de rosa — origem vegetal. Foco em poros + elasticidade + luminosidade. Indicado para peles mistas e oleosas.</p>
+          <p class="product-tags">✦ Antioxidante &nbsp;✦ Poros &nbsp;✦ Luminosidade</p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="card" style="background:#fff8f0; border-color: rgba(201,169,110,0.3);">
+      <p>⚠️ <strong>Atenção:</strong> Concentrações muito altas podem aumentar a viscosidade do produto, torná-lo instável e até causar irritação. Mais não é sempre melhor!</p>
+    </div>
+  </div>
+
+  <!-- 5. TIPO DE PELE -->
+  <div class="section">
+    <div class="section-label">
+      <div class="num">6</div>
+      <h2>Qual concentração para o seu tipo de pele?</h2>
+    </div>
+    <div class="skin-grid">
+      <div class="skin-card">
+        <h3>🌸 Pele Seca / com perda de firmeza</h3>
+        <ul>
+          <li>Concentração: <strong>média intensidade</strong></li>
+          <li>Textura recomendada: <strong>Sérum ou ampola concentrada</strong></li>
+          <li>Prioridade: hidratação + elasticidade</li>
+        </ul>
+      </div>
+      <div class="skin-card oily">
+        <h3>🍃 Pele Oleosa / com acne</h3>
+        <ul>
+          <li>Concentração: <strong>baixa a média intensidade</strong></li>
+          <li>Textura recomendada: <strong>Tônico ou sérum leve</strong></li>
+          <li>Prioridade: calmante e anti-inflamatório primeiro</li>
+        </ul>
+      </div>
+      <div class="skin-card">
+        <h3>🌹 Pele Sensível</h3>
+        <ul>
+          <li>Concentração: <strong>baixa intensidade</strong> para começar</li>
+          <li>Evite combinações com AHA, BHA, retinol</li>
+          <li>PDRN é um dos ativos mais compatíveis</li>
+        </ul>
+      </div>
+      <div class="skin-card oily">
+        <h3>✨ Pele Mista / Normal</h3>
+        <ul>
+          <li>Flexível: média intensidade</li>
+          <li>Tônico ou sérum de textura aquosa</li>
+          <li>Combine com antioxidantes para potencializar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. PDRN VS OUTROS -->
+  <div class="section">
+    <div class="section-label">
+      <div class="num">7</div>
+      <h2>PDRN vs Peptídeos vs Retinol</h2>
+    </div>
+    <div class="trio">
+      <div class="trio-card">
+        <div class="trio-icon">🧬</div>
+        <h3>PDRN</h3>
+        <p>Fragmento de DNA do salmão. Hidratação, barreira, calmante, antioxidante. Muito tolerado pela pele.</p>
+        <div class="verdict">✓ Baixa irritação + regeneração</div>
+      </div>
+      <div class="trio-card">
+        <div class="trio-icon">🔗</div>
+        <h3>Peptídeos</h3>
+        <p>Fragmentos de proteína. Estimulam colágeno e elastina. Mais eficazes quando múltiplos tipos são combinados.</p>
+        <div class="verdict">✓ Firmeza estrutural de longo prazo</div>
+      </div>
+      <div class="trio-card">
+        <div class="trio-icon">🌿</div>
+        <h3>Retinol (Vit. A)</h3>
+        <p>Renovação celular potente, reduz manchas e poros. Resultado visível rápido. Alta irritação potencial.</p>
+        <div class="verdict">✓ Resultado imediato em rugas</div>
+      </div>
+    </div>
+    <br>
+    <div class="card" style="border-left: 4px solid var(--gold); background: #fffaf2;">
+      <p>🌟 <strong>Resumo prático:</strong> Quer algo suave e regenerador? → PDRN. Quer firmeza ao longo do tempo? → Peptídeos. Quer resultado rápido em textura e rugas (e tolera irritação)? → Retinol.</p>
+    </div>
+  </div>
+
+  <!-- 7. SINERGIA -->
+  <div class="section">
+    <div class="section-label">
+      <div class="num">8</div>
+      <h2>Combinações que potencializam o PDRN</h2>
+    </div>
+    <div class="synergy-row">
+      <div class="synergy-icon">💧</div>
+      <div>
+        <h4>PDRN + Ácido Hialurônico</h4>
+        <p>O PDRN prepara e fortalece a barreira; o hialurônico "bombardeia" de hidratação. Juntos, aumentam absorção e retenção de água.</p>
+      </div>
+    </div>
+    <div class="synergy-row">
+      <div class="synergy-icon">🔗</div>
+      <div>
+        <h4>PDRN + Peptídeos</h4>
+        <p>Combinação anti-aging poderosa. PDRN regenera e acalma; peptídeos constroem colágeno. Efeito sinérgico para pele mais jovem.</p>
+      </div>
+    </div>
+    <div class="synergy-row">
+      <div class="synergy-icon">🌱</div>
+      <div>
+        <h4>PDRN + EGF (Fator de Crescimento)</h4>
+        <p>Para peles muito danificadas ou envelhecidas: os dois juntos aceleram a regeneração e a reparação cutânea.</p>
+      </div>
+    </div>
+    <div class="synergy-row">
+      <div class="synergy-icon">🍃</div>
+      <div>
+        <h4>PDRN + Centella Asiática (Cica)</h4>
+        <p>Dupla calmante e restauradora da barreira. Ideal para peles sensíveis ou irritadas — reduz vermelhidão rapidamente.</p>
+      </div>
+    </div>
+    <div class="synergy-row">
+      <div class="synergy-icon">☀️</div>
+      <div>
+        <h4>PDRN + Antioxidantes (Vitamina C, Niacinamida, etc.)</h4>
+        <p>PDRN já tem ação antioxidante — reforçando com outros ativos, o envelhecimento é desacelerado de forma ainda mais eficiente.</p>
+      </div>
+    </div>
+
+    <br>
+    <div class="avoid-box">
+      <h4>🚫 O que evitar combinar com PDRN</h4>
+      <ul>
+        <li><strong>AHA, BHA, PHA</strong> (ácidos esfoliantes) — podem irritar a pele e comprometer a barreira que o PDRN está tentando fortalecer</li>
+        <li><strong>Retinol em concentração alta</strong> — risco de irritação combinada, especialmente em peles sensíveis</li>
+        <li><strong>Vitamina C em alta concentração</strong> — pode gerar instabilidade e irritação quando combinada com PDRN</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CONCLUSÃO -->
+  <div class="conclusion">
+    <h2>Resumo Final ✦</h2>
+    <p>PDRN é um dos ativos mais promissores da skincare atual — mas o resultado depende de 3 fatores: <strong>origem do ingrediente, tecnologia de penetração e concentração adequada para você.</strong></p>
+    <div class="conclusion-tips">
+      <div class="tip-box">
+        <strong>Pele seca ou sem firmeza</strong>
+        Ampola ou sérum de média intensidade (0,1–0,2%). Combine com hialurônico.
+      </div>
+      <div class="tip-box">
+        <strong>Pele oleosa ou com acne</strong>
+        Tônico leve ou sérum aquoso de baixa intensidade. Foco em calmante primeiro.
+      </div>
+      <div class="tip-box">
+        <strong>Quer resultado anti-aging</strong>
+        PDRN + peptídeos. Use diariamente por ao menos 4–8 semanas para ver efeito.
+      </div>
+      <div class="tip-box">
+        <strong>Pele sensível/irritada</strong>
+        Comece com baixa intensidade. Evite combinações agressivas. PDRN + Cica é perfeito.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Guia educativo baseado em conhecimento de ingredientes cosméticos · Consulte um dermatologista para indicações personalizadas
+</footer>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
